@@ -168,22 +168,9 @@ function injectStyles (rule) {
 
 function imgError (ele, type) {
   switch (type) {
-    // case 1:
-    //   if (ele.src.includes('https://cn.gravatar.com/avatar')) {
-    //     ele.src = ele.src.replace('https://cn.gravatar.com/avatar/', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/gravatar.jpg')
-    //   } else {
-    //     ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_avatar.jpg'
-    //   }
-    //   break
-    // case 2:
-    //   ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.jpg'
-    //   break
-    // case 3:
-
-    //   ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png'
-    //   break
+    
     default:
-      ele.src = '/cdn/img/image-404.png'
+      ele.src = 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@6.1.7/themes/cdn/img/image-404.png'
   }
 }
 mashiro_global.post_list_show_animation = new function () {
@@ -321,7 +308,7 @@ function attach_image () {
             $('.insert-image-tips').html('<i class="fa fa-picture-o" aria-hidden="true"></i>')
           }, 1000)
           var get_the_url = res.data.url.replace('https://i.loli.net/', 'https://static.shino.cc/user-upload/')
-          $('#upload-img-show').append('<img class="lazyload upload-image-preview" src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.2/img/svg/loader/trans.ajax-spinner-preloader.svg" data-src="' + get_the_url + '" onclick="window.open(\'' + get_the_url + '\')" onerror="imgError(this)" />')
+          $('#upload-img-show').append('<img class="lazyload upload-image-preview" src="https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/trans.ajax-spinner-preloader.svg" data-src="' + get_the_url + '" onclick="window.open(\'' + get_the_url + '\')" onerror="imgError(this)" />')
           lazyload()
           addComment.createButterbar('图片上传成功~<br>Uploaded successfully~')
           grin(res.data.url.replace('https://i.loli.net/', '{UPLOAD}'), type = 'Img')
@@ -432,7 +419,7 @@ function checkBgImgCookie () {
     $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
   }
   if (bgurl != '') {
-    if (bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/sakura.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/plaid.jpg' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/star.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/point.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/little-monster.png') {
+    if (bgurl == 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/sakura.png' || bgurl == 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/plaid.jpg' || bgurl == 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/star.png' || bgurl == 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/point.png' || bgurl == 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/little-monster.png') {
       mashiro_global.variables.skinSecter = true
       mashiro_global.variables.isNight = false
       $('#night-mode-cover').css('visibility', 'hidden')
@@ -499,11 +486,11 @@ $(document).ready(function () {
       setCookie('bgImgSetting', url, 30)
     })
   }
-  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/sakura.png')
-  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/plaid.jpg')
-  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/star.png')
-  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/point.png')
-  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/little-monster.png')
+  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/sakura.png')
+  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/plaid.jpg')
+  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/star.png')
+  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/point.png')
+  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/little-monster.png')
   changeBGnoTrans('#bing-bg', 'https://api.shino.cc/bing/')
   $('.skin-menu #white-bg').click(function () {
     mashiro_global.variables.skinSecter = false
@@ -521,7 +508,7 @@ $(document).ready(function () {
   $('.skin-menu #dark-bg').click(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
-    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
+    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/2016838087/SakuraHexoFile@master/themes/sakurajs/starry_sky.png)')
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
     $('#night-mode-cover').css('visibility', 'visible')
     $('.pattern-center').removeClass('pattern-center').addClass('pattern-center-sakura')
@@ -988,19 +975,6 @@ function get_poem (poem_ele, info_ele) {
   xhr.send()
 }
 
-// function loadBotui() {
-//     if ($('div').hasClass('popcontainer')) {
-//         if (mashiro_global.variables.has_bot_ui) {
-//             bot_ui_ini();
-//         } else {
-//             $.getScript('https://cdn.jsdelivr.net/gh/moezx/cdn@latest/js/botui/botui.js', function () {
-//                 bot_ui_ini();
-//                 mashiro_global.variables.has_bot_ui = true;
-//             });
-//         }
-//     }
-// }
-
 function mail_me () {
   var mail = 'mailto:' + mashiro_option.email_name + '@' + mashiro_option.email_domain
   window.open(mail)
@@ -1019,28 +993,6 @@ function hearthstone_deck_iframe () {
 }
 var currentFontIsUbuntu = true
 
-// function changeFont() {
-//     if (currentFontIsUbuntu) {
-//         loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.8/css/cn.css");
-//         currentFontIsUbuntu = false;
-//     } else {
-//         loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.8/css/or.css");
-//         currentFontIsUbuntu = true;
-//     }
-// }
-
-// function convertChinese(zh) {
-//     if (zh == 'cn') {
-//         $("#zh_cn").css("display", "none");
-//         $("#zh_tw").css("display", "inline-block");
-//         loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.8/css/tw.css");
-//     }
-//     if (zh == 'tw') {
-//         $("#zh_tw").css("display", "none");
-//         $("#zh_cn").css("display", "inline-block");
-//         loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.8/css/cn.css");
-//     }
-// }
 mashiro_global.ini.normalize()
 
 var home = location.href,
@@ -1086,15 +1038,6 @@ var home = location.href,
           }
         }
         $.getScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js');
-      }
-    },
-    AB: function () {
-      if (window.location.pathname.indexOf('about') > -1) {
-        $.getScript('/js/botui.js', function () {
-          if (typeof(botui) == undefined && !botui.message) {
-            bot_ui_ini()
-          }
-        })
       }
     },
     VA: function () {
@@ -1629,11 +1572,6 @@ if ((isWebkit || isOpera || isIe) && document.getElementById && window.addEventL
     }
   }, false)
 }
-// loadCSS(mashiro_option.jsdelivr_css_src);
-// loadCSS("https://at.alicdn.com/t/font_679578_dishi1yoavm.css");
-// loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.5.4/fonts/Moe-Mashiro/stylesheet.css");
-// loadCSS("https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700");
-// loadCSS("https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.9/css/sharejs.css");;
 
 function render (template, context) {
   var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g
@@ -1665,103 +1603,3 @@ $(document).ready(function () {
     $('p').remove('.head-copyright')
   }, 0)
 })
-
-// function aplayerF() {
-//     'use strict';
-//     var aplayers = [],
-//         loadMeting = function () {
-//             function a(a, b) {
-//                 var c = {
-//                     container: a,
-//                     audio: b,
-//                     mini: null,
-//                     fixed: null,
-//                     autoplay: !1,
-//                     mutex: !0,
-//                     lrcType: 3,
-//                     listFolded: !1,
-//                     preload: 'auto',
-//                     theme: '#2980b9',
-//                     loop: 'all',
-//                     order: 'list',
-//                     volume: null,
-//                     listMaxHeight: null,
-//                     customAudioType: null,
-//                     storageName: 'metingjs'
-//                 };
-//                 if (b.length) {
-//                     b[0].lrc || (c.lrcType = 0);
-//                     var d = {};
-//                     for (var e in c) {
-//                         var f = e.toLowerCase();
-//                         (a.dataset.hasOwnProperty(f) || a.dataset.hasOwnProperty(e) || null !== c[e]) && (d[e] = a.dataset[f] || a.dataset[e] || c[e], ('true' === d[e] || 'false' === d[e]) && (d[e] = 'true' == d[e]))
-//                     }
-//                     aplayers.push(new APlayer(d))
-//                 }
-//                 for (var f = 0; f < aplayers.length; f++) try {
-//                     aplayers[f].lrc.hide();
-//                 } catch (a) {
-//                     console.log(a)
-//                 }
-//                 var lrcTag = 1;
-//                 $(".aplayer.aplayer-fixed").click(function () {
-//                     if (lrcTag == 1) {
-//                         for (var f = 0; f < aplayers.length; f++) try {
-//                             aplayers[f].lrc.show();
-//                         } catch (a) {
-//                             console.log(a)
-//                         }
-//                     }
-//                     lrcTag = 2;
-//                 });
-//                 var apSwitchTag = 0;
-//                 $(".aplayer.aplayer-fixed .aplayer-body").addClass("ap-hover");
-//                 $(".aplayer-miniswitcher").click(function () {
-//                     if (apSwitchTag == 0) {
-//                         $(".aplayer.aplayer-fixed .aplayer-body").removeClass("ap-hover");
-//                         apSwitchTag = 1;
-//                     } else {
-//                         $(".aplayer.aplayer-fixed .aplayer-body").addClass("ap-hover");
-//                         apSwitchTag = 0;
-//                     }
-//                 });
-//             }
-//             var b = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r';
-//             'undefined' != typeof meting_api && (b = meting_api);
-//             for (var f = 0; f < aplayers.length; f++) try {
-//                 aplayers[f].destroy()
-//             } catch (a) {
-//                 console.log(a)
-//             }
-//             aplayers = [];
-//             for (var c = document.querySelectorAll('.aplayer'), d = function () {
-//                 var d = c[e],
-//                     f = d.dataset.id;
-//                 if (f) {
-//                     var g = d.dataset.api || b;
-//                     g = g.replace(':server', d.dataset.server), g = g.replace(':type', d.dataset.type), g = g.replace(':id', d.dataset.id), g = g.replace(':auth', d.dataset.auth), g = g.replace(':r', Math.random());
-//                     var h = new XMLHttpRequest;
-//                     h.onreadystatechange = function () {
-//                         if (4 === h.readyState && (200 <= h.status && 300 > h.status || 304 === h.status)) {
-//                             var b = JSON.parse(h.responseText);
-//                             a(d, b)
-//                         }
-//                     }, h.open('get', g, !0), h.send(null)
-//                 } else if (d.dataset.url) {
-//                     var i = [{
-//                         name: d.dataset.name || d.dataset.title || 'Audio name',
-//                         artist: d.dataset.artist || d.dataset.author || 'Audio artist',
-//                         url: d.dataset.url,
-//                         cover: d.dataset.cover || d.dataset.pic,
-//                         lrc: d.dataset.lrc,
-//                         type: d.dataset.type || 'auto'
-//                     }];
-//                     a(d, i)
-//                 }
-//             }, e = 0; e < c.length; e++) d()
-//         };
-//     document.addEventListener('DOMContentLoaded', loadMeting, !1);
-// }
-// if (document.body.clientWidth > 860) {
-//     aplayerF();
-// }
