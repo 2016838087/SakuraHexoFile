@@ -1488,7 +1488,7 @@ $(function () {
       Siren.CE()
       Siren.VA()
       Siren.MJ()
-      Siren.AB()
+      // Siren.AB()
       Siren.TOC()
       Siren.BSZ()
       if (mashiro_option.NProgressON) NProgress.done()
