@@ -1,143 +1,43 @@
-/*!
- * Fairy Dust Cursor.js
- * - 90's cursors collection
- * -- https://github.com/tholman/90s-cursor-effects
- * -- http://codepen.io/tholman/full/jWmZxZ/
- */
-
-//鼠标点击雪花特效
-(function fairyDustCursor() {
-  
-  var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-  var cursor = {x: width/2, y: width/2};
-  var particles = [];
-  
-  function init() {
-    bindEvents();
-    loop();
-  }
-  
-  // Bind events that are needed
-  function bindEvents() {
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('touchmove', onTouchMove);
-    document.addEventListener('touchstart', onTouchMove);
-    
-    window.addEventListener('resize', onWindowResize);
-  }
-  
-  function onWindowResize(e) {
-    width = window.innerWidth;
-    height = window.innerHeight;
-  }
-  
-  function onTouchMove(e) {
-    if( e.touches.length > 0 ) {
-      for( var i = 0; i < e.touches.length; i++ ) {
-        addParticle( e.touches[i].clientX, e.touches[i].clientY, possibleColors[Math.floor(Math.random()*possibleColors.length)]);
-      }
-    }
-  }
-  
-  function onMouseMove(e) {    
-    cursor.x = e.clientX;
-    cursor.y = e.clientY;
-    
-    addParticle( cursor.x, cursor.y, possibleColors[Math.floor(Math.random()*possibleColors.length)]);
-  }
-  
-  function addParticle(x, y, color) {
-    var particle = new Particle();
-    particle.init(x, y, color);
-    particles.push(particle);
-  }
-  
-  function updateParticles() {
-    
-    // Updated
-    for( var i = 0; i < particles.length; i++ ) {
-      particles[i].update();
-    }
-    
-    // Remove dead particles
-    for( var i = particles.length -1; i >= 0; i-- ) {
-      if( particles[i].lifeSpan < 0 ) {
-        particles[i].die();
-        particles.splice(i, 1);
-      }
-    }
-    
-  }
-  
-  function loop() {
-    requestAnimationFrame(loop);
-    updateParticles();
-  }
-  
-  /**
-   * Particles
-   */
-  
-  function Particle() {
-
-    this.character = "*";
-    this.lifeSpan = 120; //ms
-    this.initialStyles ={
-      "position": "fixed",
-      "top": "0", //必须加
-      "display": "block",
-      "pointerEvents": "none",
-      "z-index": "10000000",
-      "fontSize": "20px",
-      "will-change": "transform"
+/*样式一*/
+//背景雪花飘落特效
+(function($){
+	$.fn.snow = function(options){
+	var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
+	documentHeight 	= $(document).height(),
+	documentWidth	= $(document).width(),
+	defaults = {
+		minSize		: 10,
+		maxSize		: 20,
+		newOn		: 1000,
+		flakeColor	: "#87CEFA" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+	},
+	options	= $.extend({}, defaults, options);
+	var interval= setInterval( function(){
+	var startPositionLeft = Math.random() * documentWidth - 100,
+	startOpacity = 0.5 + Math.random(),
+	sizeFlake = options.minSize + Math.random() * options.maxSize,
+	endPositionTop = documentHeight - 200,
+	endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+	durationFall = documentHeight * 10 + Math.random() * 5000;
+	$flake.clone().appendTo('body').css({
+		left: startPositionLeft,
+		opacity: startOpacity,
+		'font-size': sizeFlake,
+		color: options.flakeColor
+	}).animate({
+		top: endPositionTop,
+		left: endPositionLeft,
+		opacity: 0.2
+	},durationFall,'linear',function(){
+		$(this).remove()
+	});
+	}, options.newOn);
     };
-
-    // Init, and set properties
-    this.init = function(x, y, color) {
-
-      this.velocity = {
-        x:  (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
-        y: 1
-      };
-      
-      this.position = {x: x - 10, y: y - 20};
-      this.initialStyles.color = color;
-      console.log(color);
-
-      this.element = document.createElement('span');
-      this.element.innerHTML = this.character;
-      applyProperties(this.element, this.initialStyles);
-      this.update();
-      
-      document.body.appendChild(this.element);
-    };
-    
-    this.update = function() {
-      this.position.x += this.velocity.x;
-      this.position.y += this.velocity.y;
-      this.lifeSpan--;
-      
-      this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px,0) scale(" + (this.lifeSpan / 120) + ")";
-    }
-    
-    this.die = function() {
-      this.element.parentNode.removeChild(this.element);
-    }
-    
-  }
-  
-  /**
-   * Utils
-   */
-  
-  // Applies css `properties` to an element.
-  function applyProperties( target, properties ) {
-    for( var key in properties ) {
-      target.style[ key ] = properties[ key ];
-    }
-  }
-  
-  init();
-})();
+})(jQuery);
+$(function(){
+    $.fn.snow({ 
+	    minSize: 5, /* 定义雪花最小尺寸 */
+	    maxSize: 50,/* 定义雪花最大尺寸 */
+	    newOn: 50  /* 定义密集程度，数字越小越密集 */
+    });
+});
